@@ -12,13 +12,16 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Book {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @EqualsAndHashCode.Exclude
     private String title;
     private String isbn;
+    @EqualsAndHashCode.Exclude
     private String publisher;
     
     @ManyToMany

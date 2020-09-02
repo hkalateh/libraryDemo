@@ -12,6 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Author {
     
     @Id
@@ -19,13 +20,18 @@ public class Author {
     private Long id;
     
     @Column(name = "first_name", columnDefinition = "nvarchar2", length = 30)
+    @EqualsAndHashCode.Exclude
     private String firstName;
+    @EqualsAndHashCode.Exclude
     private String lastName;
+    private String nationalCode;
     @ManyToMany(mappedBy = "authors")
+    @EqualsAndHashCode.Exclude
     private Set<Book> books = new HashSet<>();
     
-    public Author(String firstName, String lastName) {
+    public Author(String firstName, String lastName, String nationalCode) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.nationalCode = nationalCode;
     }
 }
