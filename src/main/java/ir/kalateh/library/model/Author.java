@@ -25,6 +25,7 @@ public class Author {
     @EqualsAndHashCode.Exclude
     private String lastName;
     private String nationalCode;
+    @ToString.Exclude
     @ManyToMany(mappedBy = "authors")
     @EqualsAndHashCode.Exclude
     private Set<Book> books = new HashSet<>();

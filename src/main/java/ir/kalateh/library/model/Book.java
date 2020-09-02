@@ -22,6 +22,7 @@ public class Book {
     private String title;
     private String isbn;
     
+    @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors = new HashSet<>();
@@ -29,6 +30,7 @@ public class Book {
     @ManyToMany(mappedBy = "boooks")
     private Set<Member> members = new HashSet<>();
     
+    @ToString.Exclude
     @ManyToOne
     @EqualsAndHashCode.Exclude
     private Publisher publisher;

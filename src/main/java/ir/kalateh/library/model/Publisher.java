@@ -25,6 +25,7 @@ public class Publisher implements Serializable {
     @EqualsAndHashCode.Exclude
     private String address;
     
+    @ToString.Exclude
     @OneToMany
     @JoinColumn(name = "publisher_id")
     @EqualsAndHashCode.Exclude
