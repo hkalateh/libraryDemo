@@ -29,4 +29,10 @@ public class Member {
     @ManyToMany
     @JoinTable(name = "borrow_table", joinColumns = @JoinColumn(name = "member_id"), inverseJoinColumns = @JoinColumn(name = "book_id"))
     private Set<Book> boooks = new HashSet<>();
+    
+    public Member(String name, String family, String nationalCode) {
+        this.name = name;
+        this.family = family;
+        this.nationalCode = nationalCode;
+    }
 }

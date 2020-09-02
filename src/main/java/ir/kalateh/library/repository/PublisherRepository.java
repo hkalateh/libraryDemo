@@ -1,9 +1,9 @@
 package ir.kalateh.library.repository;
 
-import ir.kalateh.library.model.Book;
+import ir.kalateh.library.model.Publisher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long> {
+public interface PublisherRepository extends JpaRepository<Publisher, Long> {
 }

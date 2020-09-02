@@ -21,8 +21,6 @@ public class Book {
     @EqualsAndHashCode.Exclude
     private String title;
     private String isbn;
-    @EqualsAndHashCode.Exclude
-    private String publisher;
     
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
@@ -31,9 +29,12 @@ public class Book {
     @ManyToMany(mappedBy = "boooks")
     private Set<Member> members = new HashSet<>();
     
-    public Book(String title, String isbn, String publisher) {
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Publisher publisher;
+    
+    public Book(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
-        this.publisher = publisher;
     }
 }
